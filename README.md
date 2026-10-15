@@ -23,5 +23,6 @@ npm run dev
 - Тесты: `python -m pytest backend/tests/test_engine.py -q`
 
 Подробно: [README-ZAPUSK.md](README-ZAPUSK.md), [СБОРКА-И-ДЕМО.md](СБОРКА-И-ДЕМО.md).
+Инструкция для пользователей: https://telegra.ph/YAblokII--dvojnik-sklada-instrukciya-10-15
 
 Время в программе учебное: `scenario_now=2026-11-02T09:00+03:00`.
