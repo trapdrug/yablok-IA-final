@@ -7,11 +7,10 @@ import Scenario from './pages/Scenario';
 import Production from './pages/Production';
 import AiChat from './components/AiChat';
 import Landing from './pages/Landing';
-import Gid from './pages/Gid';
 import { fmtDate } from './format';
 
 type Tab = 'dash' | 'orders' | 'ships' | 'scenario' | 'prod' | 'ai' | 'consult';
-type View = 'landing' | 'app' | 'gid';
+type View = 'landing' | 'app';
 
 const NAV: { id: Tab; label: string; hint: string }[] = [
   { id: 'dash', label: 'Склад', hint: 'остатки и поставки' },
@@ -45,8 +44,7 @@ const SECTION: Record<Tab, { h: string; lead: string }> = {
 };
 
 export default function App() {
-  const [view, setView] = useState<View>(() =>
-    typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('gid') ? 'gid' : 'landing');
+  const [view, setView] = useState<View>('landing');
   const [tab, setTab] = useState<Tab>('dash');
   const [snap, setSnap] = useState<any>(null);
   const [ships, setShips] = useState<any[]>([]);
@@ -120,11 +118,7 @@ export default function App() {
   );
 
   if (view === 'landing') {
-    return (<><Landing snap={snap} mock={mock} onEnter={enter} onGuide={() => setView('gid')} />{consultFab}</>);
-  }
-
-  if (view === 'gid') {
-    return (<><Gid onBack={() => setView('landing')} onEnter={enter} />{consultFab}</>);
+    return (<><Landing snap={snap} mock={mock} onEnter={enter} />{consultFab}</>);
   }
 
   return (

@@ -6,12 +6,10 @@ export default function Landing({
   snap,
   mock,
   onEnter,
-  onGuide,
 }: {
   snap: any;
   mock: boolean;
   onEnter: (tab: LandingTab) => void;
-  onGuide: () => void;
 }) {
   const air = snap?.stock?.find((s: any) => s.sku === 'FG-AIR');
   const plus = snap?.stock?.find((s: any) => s.sku === 'FG-PLUS');
@@ -177,11 +175,7 @@ export default function Landing({
           </div>
           <div className="fc-footer-bottom">
             <span>© 2008–2026 Firecode × ЯблокИИ</span>
-            <span>
-              <button className="link" onClick={onGuide}>Гид по сайту →</button>
-              {' · '}
-              <button className="link" onClick={() => onEnter('dash')}>Открыть приложение →</button>
-            </span>
+            <span><button className="link" onClick={() => onEnter('dash')}>Открыть приложение →</button></span>
           </div>
         </div>
       </footer>
